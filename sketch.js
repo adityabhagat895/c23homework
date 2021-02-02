@@ -1,6 +1,5 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
 var packageBody,ground;
-var wall1,wall2,wall3;
 var wall1Body,wall2Body,wall3Body;
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -17,7 +16,7 @@ function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
 	
-
+	
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
@@ -27,10 +26,8 @@ function setup() {
 	helicopterSprite.scale=0.6
 
 	groundSprite=createSprite(width/2, height-35, width,10);
-	groundSprite.shapeColor=color(255)
-	wall2=createSprite(width/2,650,200,20);
-	wall1=createSprite(300,610,20,100)
-	wall3=createSprite(500,610,20,100)
+	
+	
 
 
 	engine = Engine.create();
@@ -43,19 +40,8 @@ function setup() {
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
-
-	 wall2Body=Bodies.rectangle(width/2,650,200,20,{isStatic:true});
-	 World.add(world,wall2Body);
-
-	 wall1Body=Bodies.rectangle(300,610,20,100,{isStatic:true});
-	 World.add(world,wall1Body);
-
-	 wall3Body=Bodies.rectangle(500,610,20,100,{isStatic:true});
-	 World.add(world,wall3Body);
-
-
 	Engine.run(engine);
-  
+	
 }
 
 
@@ -64,6 +50,11 @@ function draw() {
   background(0);
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
+  ;
+  fill("red");
+  rect(400,650,100,20);
+  rect(350,610,20,100);
+  rect(450,610,20,100);
   drawSprites();
     
   }
